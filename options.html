@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chrome Hardware Bridge Options</title>
+  <style>
+    body: { padding: 10px; }
+  </style>
+  <link href="options.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>
+      <img src="icon-128.png" alt="" height="64" width="64">
+      Chrome Hardware Bridge
+    </h1>
+	<h2>Printer Options</h2>
+
+	<div>
+		Type:
+		<input type="text" id="printer_type"/>
+
+		Designated Printer:
+		<select id="printer">
+		</select>
+
+		<button id="add-printer" disabled="disabled">Add</button>
+		
+		<table id="printer-table" class="dataTable">
+			<thead>
+				<tr>					
+					<th>Type</th>
+					<th>Printer</th>
+					<th class="dt-right"></th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<p>If designated printer not selected for specific format, Windows default printer will be used.</p>
+	</div>
+
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery.dataTables.js"></script>
+	<script src="options.js"></script>
+</body>
+</html>
