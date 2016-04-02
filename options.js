@@ -5,13 +5,13 @@ var printer_table;
 var printer_table_id = 0;
 
 function connectNative() {
-  port = chrome.runtime.connectNative(hostName);
-  port.onMessage.addListener(onNativeMessage);
-  port.onDisconnect.addListener(onDisconnected);
+	port = chrome.runtime.connectNative(hostName);
+	port.onMessage.addListener(onNativeMessage);
+	port.onDisconnect.addListener(onDisconnected);
 }
 
 function sendNative(data) {  
-  port.postMessage(data);
+	port.postMessage(data);
 }
 
 function onNativeMessage(message) {
