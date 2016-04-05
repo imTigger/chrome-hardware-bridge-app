@@ -16,7 +16,10 @@ function sendNative(data) {
 
 function onNativeMessage(message) {
 	if (message.status == 0) {
-		if (message.action == 'list' && message.type =='printer') {
+		if (message.action == 'version') {
+			$('#host-version').html(message.value);
+			sendNative({'action': 'list_printer'});
+		} else if (message.action == 'list_printer') {
 			printer_names = document.getElementById('printer');
 			for (i in message.items) {
 				option = document.createElement("option");
@@ -24,6 +27,9 @@ function onNativeMessage(message) {
 				printer_names.add(option);
 			}
 			load_options();
+			sendNative({'action': 'bye'});
+		} else {
+			alert(JSON.stringify(message));
 		}
 	} else {
 		if (typeof message == 'object') {
@@ -72,6 +78,7 @@ function add_printer(printer_type, printer, bypass) {
 		return;
 	}
 	
+	$('#printer_type').val('');
 	printer_table_id += 1;
 	
 	row = printer_table.row.add([
@@ -97,6 +104,14 @@ function save_printer() {
 
 
 $().ready(function() {
+	$.ajax({
+		url: "/manifest.json", 
+		dataType: 'json',
+		success: function (json) {
+			$('#extension-version').html(json.version);
+		}		
+	})
+	
 	printer_table = $('#printer-table').DataTable({
 		searching: false,
 		paging: false,
@@ -120,5 +135,5 @@ $().ready(function() {
 	});
 	
 	connectNative();
-	sendNative({'action': 'list_printer'});
+	sendNative({'action': 'version'});
 });
