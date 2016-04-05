@@ -1,3 +1,7 @@
 document.addEventListener('chromeHardwareEvent', function(evt) {
-	chrome.extension.sendRequest(evt.detail);
+	if (chrome.extension) {
+		chrome.extension.sendRequest(evt.detail);
+	} else {
+		alert('Internal error. Please reload this page and try again.');
+	}
 });
