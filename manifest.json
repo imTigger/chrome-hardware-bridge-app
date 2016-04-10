@@ -1,7 +1,7 @@
 {
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuXwOLrWPtGNn4UvqbkTiAk8OQhBBvvFJor33bxx1+AcOD+LBvKi6iSxllC7JnPxYyyu5PJaZOsMofLEOvW6YqGDVvmUWaiUj/vu+n+Ol0WRalApbY71w9zpHE9+ZAI0zWVlGSV8cwbCiRnl17jDqL/5AEuxxOZAPawlaDn7bDTdVVGwsj7eyzOQno3zkUI5eyWW0wHlLVr1dm45K2Cw0Tp84X5HAFbLW01Vwnf6Pm+EZyu1uCX+5shD5b9mfUsxUonuPYWeXv7n/wfmeBO7BcmemiF5HzkG9pH9Etpa/8kE1jjygNDzMozFYKTIu9a6Hys7mli11HqlSQeQGyzzzCQIDAQAB",
   "name": "Chrome Hardware Bridge",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "manifest_version": 2,
   "options_page": "options.html",
   "description": "Print HTML/PDF directly to printer",

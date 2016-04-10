@@ -3,6 +3,7 @@ var port;
 var printers = [];
 var printer_table;
 var printer_table_id = 0;
+var initialized = false;
 
 function connectNative() {
 	port = chrome.runtime.connectNative(hostName);
@@ -15,6 +16,7 @@ function sendNative(data) {
 }
 
 function onNativeMessage(message) {
+	initialized = true;
 	if (message.status == 0) {
 		if (message.action == 'version') {
 			$('#host-version').html(message.value);
@@ -41,7 +43,9 @@ function onNativeMessage(message) {
 }
 
 function onDisconnected() {
-	// alert("Failed to connect: " + chrome.runtime.lastError.message);
+	if (!initialized) {
+		alert("Failed to connect: " + chrome.runtime.lastError.message);
+	}
 }
 
 function load_options() {
